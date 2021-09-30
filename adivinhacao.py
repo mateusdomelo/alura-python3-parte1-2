@@ -1,12 +1,14 @@
+import random
+
 print('================================')
 print('Welcome to Guess The Number')
 print('================================')
 
-num = 32
+num = random.randrange(1, 101)
 total_attempts = 3
 attempt_initial = 1
 
-
+print('O número gerado foi', num)
 
 for rounds in range(attempt_initial, total_attempts + 1):
     print('Attempt number: {} of {}  \n'.format(rounds, total_attempts))
