@@ -5,10 +5,18 @@ print('Welcome to Guess The Number')
 print('================================')
 
 num = random.randrange(1, 101)
-total_attempts = 3
+total_attempts = 0
 attempt_initial = 1
 
-print('O número gerado foi', num)
+print('Choose the level of your game:\n(1) Easy / (2) Medium / (3) Hard\n')
+level = int(input('Type the level: '))
+
+if (level == 1):
+    total_attempts = 20
+elif (level == 2):
+    total_attempts = 10
+else:
+    total_attempts = 5
 
 for rounds in range(attempt_initial, total_attempts + 1):
     print('Attempt number: {} of {}  \n'.format(rounds, total_attempts))
