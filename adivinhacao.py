@@ -7,6 +7,7 @@ print('================================')
 num = random.randrange(1, 101)
 total_attempts = 0
 attempt_initial = 1
+points = 1000
 
 print('Choose the level of your game:\n(1) Easy / (2) Medium / (3) Hard\n')
 level = int(input('Type the level: '))
@@ -38,11 +39,18 @@ for rounds in range(attempt_initial, total_attempts + 1):
         print('================================')
         break
     else:
+        lost_points = abs(num - attempt)
+        points = points - lost_points
         if(higher):
             print('Wrong...you should try a LOWER number...lets go!\n')
         elif(lower):
             # It could be 'else'
             print('Wrong...You should try a HIGHER number...lets go!\n')
+
+    if (rounds == total_attempts - 1):
+        print("This is your last shot! Be careful!") 
+    elif(rounds == total_attempts):
+        print("Unfortunately, you reached the maximum number of attempts! The number choosed was {}. You got {} points!".format(num, points))
     
     print('================================')
     
