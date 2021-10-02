@@ -3,22 +3,45 @@ def play_game():
     print('Welcome to Hangman Game')
     print('================================')
 
-    word = 'banana'
-    word = word.lower()
-    right = False
-    hanged = False
+    secret_word = 'banana'
+    secret_word = secret_word.upper()
 
-    while not right and not hanged:
+    right_words = ['_', '_', '_', '_', '_', '_']
+    errors = 6
+
+    def show_words():
+        return '\n{}'.format(right_words)
+
+    print('\nThe word has {0} letters and you have {0} attempts!'.format(right_words.count('_')))
+    print(show_words())
+
+    while True:
         print('Playing...')
-        attempt = input('Type a letter: ').lower().strip()
+        attempt = input('Type a letter: ').upper().strip()
 
-        index = 1
+        if attempt in secret_word:
+            index = 0
+            for letter in secret_word:
+                if attempt == letter:
+                    right_words[index] = letter
+                    print('Yes! Found the letter "{}". Positions: {}'.format(attempt, index + 1))
+                index += 1
+        else:
+            errors -= 1
 
-        for letter in word:
-            if attempt == letter:
-                print("Nice! I found the letter '{}' in position {}".format(letter, index))
+            if errors == 0:
+                print('You lost...but try again!!\n')
+                break
+            elif errors == 1:
+                print('This is your last chance!!\n')
+            else:
+                print('\nThe letter "{}" was not found...You still have {} attempts'.format(attempt, errors))
 
-            index = index + 1
+        if "_" not in right_words:
+            print('Nice, you won! Good job! :D\n')
+            break
+
+        print(show_words())
         print('\n')
 
     print('End of Game')
