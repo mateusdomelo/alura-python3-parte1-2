@@ -1,5 +1,6 @@
 import random
 
+
 def play_game():
     print('================================')
     print('Welcome to Guess The Number')
