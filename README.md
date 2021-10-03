@@ -1,9 +1,9 @@
-# Games: Guessinh & Hanged
+# Games: Guessing & Hanged
 
-Guessing Game use:
-- Strings manipulation
+###Guessing Game use:
+- Strings Manipulation;
 
 
-Hanged Game use:
-- Strings manipulation
-- List comprehension
+###Hanged Game use:
+- Strings Manipulation;
+- List Comprehension;
